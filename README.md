@@ -134,7 +134,8 @@ Configured VPC Endpoints to establish private connectivity between resources in 
 
 **Screenshot:**
 
-![VPC Endpoints](screenshots/11-vpc-endpoints.png)
+<img width="1850" height="910" alt="vpc-endpoints" src="https://github.com/user-attachments/assets/aadd5eb0-f88a-4734-8c6f-cca7df45fd68" />
+
 
 ### 4. Docker Image and Amazon ECR
 
@@ -146,7 +147,8 @@ Configured VPC Endpoints to establish private connectivity between resources in 
 
 **Screenshot:**
 
-![ECR Repository](screenshots/03-ecr.png)
+<img width="1850" height="910" alt="ecr-ecs" src="https://github.com/user-attachments/assets/9edda2f1-705e-43f2-aad2-c89db0f893f4" />
+
 
 ### 5. Amazon ECS Configuration
 
@@ -159,11 +161,14 @@ Configured VPC Endpoints to establish private connectivity between resources in 
 
 **Screenshots:**
 
-![ECS Cluster](screenshots/04-ecs-cluster.png)
+<img width="1850" height="910" alt="Screenshot from 2026-11-13 19-04-53" src="https://github.com/user-attachments/assets/c8db2de1-ba24-4067-a985-c9b9633feec7" />
 
-![ECS Service](screenshots/05-ecs-service.png)
 
-![Task Definition](screenshots/06-task-definition.png)
+<img width="1850" height="910" alt="cluster-ecs" src="https://github.com/user-attachments/assets/e948c17b-92ee-427b-b6f9-e34d73d48fe5" />
+
+
+<img width="1850" height="910" alt="task-ecs" src="https://github.com/user-attachments/assets/2c96691d-cb62-431e-af35-31dfceff8e7a" />
+
 
 ### 6. Application Load Balancer Configuration
 
