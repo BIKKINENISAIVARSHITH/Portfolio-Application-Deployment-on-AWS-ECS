@@ -98,7 +98,8 @@ Configured AWS Security Groups to control inbound traffic and manage communicati
 
 **Screenshot:**
 
-![Security Groups](screenshots/02-security-groups.png)
+<img width="1850" height="910" alt="sg-ecs" src="https://github.com/user-attachments/assets/9ec9352b-38d3-4b28-be46-39540ea64f7d" />
+
 
 ### 3. VPC Endpoints Configuration
 
