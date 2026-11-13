@@ -78,8 +78,7 @@ flowchart TD
 
 **Screenshot:**
 
-![VPC Configuration](<img width="1850" height="910" alt="vpc-ecs" src="https://github.com/user-attachments/assets/92688ab9-6d9f-42e7-8dcf-2799c3c06165" />
-)
+![VPC Configuration](<img width="1850" height="910" alt="vpc-ecs" src="https://github.com/user-attachments/assets/92688ab9-6d9f-42e7-8dcf-2799c3c06165" />)
 
 ### 2. Security Group Configuration
 
