@@ -1,4 +1,3 @@
-<img width="1858" height="973" alt="ACM" src="https://github.com/user-attachments/assets/73e174e7-7b60-4fee-97c2-68300f69ef83" />
 # Portfolio Application Deployment on AWS ECS
 
 ## Project Overview
@@ -48,8 +47,7 @@ flowchart TD
 
 **Screenshot:**
 
-![VPC Configuration](<img width="1850" height="910" alt="Screenshot from 2026-11-13 19-02-57" src="https://github.com/user-attachments/assets/c43a34bb-5afd-4a83-a5e3-58ba696ac62b" />
-)
+<img width="1858" height="973" alt="ACM" src="https://github.com/user-attachments/assets/73e174e7-7b60-4fee-97c2-68300f69ef83" />
 
 ### 2. Security Group Configuration
 - Configured security groups for application traffic.
