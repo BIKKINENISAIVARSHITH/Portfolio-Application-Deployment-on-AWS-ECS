@@ -180,7 +180,8 @@ Configured VPC Endpoints to establish private connectivity between resources in 
 
 **Screenshot:**
 
-![Application Load Balancer](screenshots/07-load-balancer.png)
+<img width="1850" height="910" alt="ALB-ecs" src="https://github.com/user-attachments/assets/ce429bea-06d3-4846-b089-3963b56dc0ae" />
+
 
 ### 7. Target Group Configuration
 
@@ -192,7 +193,8 @@ Configured VPC Endpoints to establish private connectivity between resources in 
 
 **Screenshot:**
 
-![Target Group](screenshots/08-target-groups.png)
+<img width="1850" height="910" alt="tg-ecs" src="https://github.com/user-attachments/assets/59566e44-078e-4f0a-a99c-a3d53875a584" />
+
 
 ### 8. Route 53 DNS Configuration
 
@@ -202,7 +204,8 @@ Configured VPC Endpoints to establish private connectivity between resources in 
 
 **Screenshot:**
 
-![Route 53](screenshots/09-route53.png)
+<img width="1850" height="910" alt="route53-ecs" src="https://github.com/user-attachments/assets/4d78c53b-b23f-45bc-92ee-42ecfd4d9b09" />
+
 
 ### 9. Application Deployment and Testing
 
@@ -214,7 +217,8 @@ Configured VPC Endpoints to establish private connectivity between resources in 
 
 **Application Screenshot:**
 
-![Portfolio Website](screenshots/10-portfolio-website.png)
+<img width="1854" height="1035" alt="output-ecs" src="https://github.com/user-attachments/assets/730cb0c9-2baa-4773-a552-06d961600561" />
+
 
 ## Deployment Workflow
 
