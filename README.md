@@ -6,9 +6,9 @@ This project demonstrates the deployment of a containerized Portfolio Web Applic
 
 The application was containerized using Docker, stored in Amazon Elastic Container Registry (ECR), and deployed through ECS. An Application Load Balancer (ALB) was configured to distribute incoming application traffic to the ECS service through a Target Group. Amazon Route 53 was used for DNS configuration.
 
-The project demonstrates practical knowledge of AWS networking, containerization, application deployment, and cloud infrastructure.
+This project demonstrates practical knowledge of AWS networking, containerization, cloud infrastructure, and application deployment.
 
-## Architecture
+## AWS Architecture
 
 ```mermaid
 flowchart TD
@@ -18,10 +18,16 @@ flowchart TD
     D --> E[Amazon ECS Service]
     E --> F[ECS Task / Container]
     G[Amazon ECR] --> F
-    H[Amazon VPC] --- C
-    H --- E
-    I[Security Groups] --- C
-    I --- E
+
+    subgraph VPC[Amazon VPC]
+       subgraph Public[2 Public Subnets]
+          C
+       end
+       subgraph Private[2 Private Subnets]
+          E
+          F
+       end
+    end
 ```
 
 ## AWS Services Used
@@ -29,7 +35,9 @@ flowchart TD
 | AWS Service | Purpose |
 |---|---|
 | Amazon VPC | Provides isolated cloud networking |
-| Security Groups | Controls inbound and outbound traffic |
+| Public Subnets | Host internet-facing infrastructure |
+| Private Subnets | Provide private networking for application resources |
+| Security Groups | Control inbound and outbound traffic |
 | Amazon ECR | Stores Docker container images |
 | Amazon ECS | Runs and manages containerized applications |
 | ECS Task Definition | Defines container image, port mappings, and runtime settings |
@@ -41,39 +49,67 @@ flowchart TD
 ## Project Implementation
 
 ### 1. VPC Configuration
-- Created an Amazon VPC.
-- Configured the required subnets and networking.
-- Prepared network connectivity for the application deployment.
+
+- Created an Amazon VPC to provide an isolated network environment.
+- Configured 2 Public Subnets and 2 Private Subnets.
+- Distributed subnets across Availability Zones for network architecture.
+- Configured public subnets for internet-facing infrastructure such as the Application Load Balancer.
+- Configured private subnets for application resources as per the deployment architecture.
+- Configured the required network connectivity for ECS application deployment.
+
+**VPC Network Configuration:**
+
+| Subnet Type | Quantity | Purpose |
+|---|---:|---|
+| Public Subnets | 2 | Host internet-facing Application Load Balancer |
+| Private Subnets | 2 | Provide private networking for ECS application resources |
 
 **Screenshot:**
 
-<img width="1858" height="973" alt="ACM" src="https://github.com/user-attachments/assets/73e174e7-7b60-4fee-97c2-68300f69ef83" />
+![VPC Configuration](screenshots/01-vpc.png)
 
 ### 2. Security Group Configuration
-- Configured security groups for application traffic.
-- Allowed the required inbound ports.
-- Configured communication between the load balancer and application.
+
+Configured AWS Security Groups to control inbound traffic and manage communication between the internet, Application Load Balancer, and ECS application.
+
+**Inbound Security Group Rules:**
+
+| Type | Protocol | Port | Source | Purpose |
+|---|---|---:|---|---|
+| HTTP | TCP | 80 | 0.0.0.0/0 | Allow HTTP traffic |
+| HTTPS | TCP | 443 | 0.0.0.0/0 | Allow HTTPS traffic |
+
+- Configured HTTP on port 80 to accept web traffic.
+- Configured HTTPS on port 443 to support secure web traffic.
+- Configured security group communication between the Application Load Balancer and ECS tasks as required.
+- Used security groups to control application traffic.
+
+**Note:** For ECS tasks running in private subnets, application port access should be restricted to the ALB security group rather than allowing direct public access.
 
 **Screenshot:**
 
 ![Security Groups](screenshots/02-security-groups.png)
 
 ### 3. Docker Image and Amazon ECR
+
 - Created a Docker image for the Portfolio Application.
 - Created an Amazon ECR repository.
 - Authenticated Docker with Amazon ECR.
-- Tagged and pushed the Docker image to ECR.
+- Tagged the Docker image.
+- Pushed the Docker image to the ECR repository.
 
 **Screenshot:**
 
 ![ECR Repository](screenshots/03-ecr.png)
 
 ### 4. Amazon ECS Configuration
+
 - Created an ECS cluster.
-- Created a task definition.
+- Created an ECS Task Definition.
 - Configured the container image using the ECR repository.
-- Configured the application container port.
-- Created an ECS service to run the application.
+- Configured the application container port (Port 80).
+- Created an ECS Service to run and manage the application.
+- Configured the desired number of running tasks.
 
 **Screenshots:**
 
@@ -83,28 +119,35 @@ flowchart TD
 
 ![Task Definition](screenshots/06-task-definition.png)
 
-### 5. Application Load Balancer
+### 5. Application Load Balancer Configuration
+
 - Created an Application Load Balancer.
-- Configured listeners.
-- Integrated the load balancer with the ECS service through a Target Group.
+- Configured the ALB in the public subnets.
+- Configured listeners for incoming application traffic.
+- Integrated the ALB with the ECS service through a Target Group.
+- Configured HTTP and HTTPS listeners as implemented.
 
 **Screenshot:**
 
 ![Application Load Balancer](screenshots/07-load-balancer.png)
 
 ### 6. Target Group Configuration
-- Created a Target Group.
+
+- Created a Target Group for the ECS application.
 - Configured the application traffic port.
-- Configured health checks.
-- Registered ECS task targets through the ECS service integration.
+- Configured health check settings.
+- Integrated the Target Group with the ECS Service.
+- Verified the health status of registered ECS task targets.
 
 **Screenshot:**
 
 ![Target Group](screenshots/08-target-groups.png)
 
 ### 7. Route 53 DNS Configuration
-- Configured a hosted zone for the project domain.
-- Worked on DNS records to connect the domain with the application endpoint.
+
+- Created a Route 53 hosted zone for the project domain.
+- Configured DNS records to connect the custom domain with the application endpoint.
+- Used DNS configuration to make the portfolio application accessible through the domain name.
 
 **Screenshot:**
 
@@ -113,8 +156,10 @@ flowchart TD
 ### 8. Application Deployment and Testing
 
 - Deployed the Portfolio Application using Amazon ECS.
-- Used the Application Load Balancer endpoint to access the application.
-- Verified the application deployment and container status.
+- Used the Docker image stored in Amazon ECR.
+- Integrated ECS with the Application Load Balancer.
+- Tested application accessibility through the load balancer endpoint and configured domain.
+- Verified ECS task and container status.
 
 **Application Screenshot:**
 
@@ -125,37 +170,46 @@ flowchart TD
 1. Develop the Portfolio Application.
 2. Create a Dockerfile.
 3. Build the Docker image.
-4. Create an ECR repository.
-5. Push the Docker image to ECR.
-6. Create an ECS cluster.
-7. Configure the ECS task definition.
-8. Create an ECS service.
-9. Configure the Application Load Balancer.
-10. Associate the Target Group with the ECS service.
-11. Configure security groups and networking.
-12. Configure Route 53 DNS records.
-13. Test application accessibility.
+4. Create an Amazon ECR repository.
+5. Authenticate Docker with ECR.
+6. Push the Docker image to ECR.
+7. Create an Amazon VPC.
+8. Configure 2 Public Subnets and 2 Private Subnets.
+9. Configure Security Groups with HTTP (80) and HTTPS (443) rules.
+10. Create an ECS Cluster.
+11. Configure the ECS Task Definition.
+12. Create an ECS Service.
+13. Create an Application Load Balancer.
+14. Configure the Target Group and Health Checks.
+15. Integrate the ALB with the ECS Service.
+16. Configure Route 53 DNS records.
+17. Test application accessibility.
 
 ## Key Learnings
 
 - Hands-on experience with AWS cloud infrastructure.
-- Understanding Docker image creation and container deployment.
+- Understanding VPC networking and subnet architecture.
+- Practical experience configuring public and private subnets.
+- Understanding Security Groups and inbound traffic rules.
+- Docker image creation and container deployment.
 - Practical experience with Amazon ECR and ECS.
-- Understanding VPC networking and Security Groups.
 - Configuring Application Load Balancers and Target Groups.
 - Understanding DNS management using Route 53.
 - Troubleshooting container deployment and application connectivity.
 
 ## Technologies Used
 
-- Cloud Platform: Amazon Web Services (AWS)
-- Containerization: Docker
-- Container Management: Amazon ECS
-- Image Registry: Amazon ECR
-- Networking: Amazon VPC
-- Load Balancing: Application Load Balancer
-- DNS: Amazon Route 53
-- Version Control: Git and GitHub
+- **Cloud Platform:** Amazon Web Services (AWS)
+- **Containerization:** Docker
+- **Container Management:** Amazon ECS
+- **Container Registry:** Amazon ECR
+- **Networking:** Amazon VPC
+- **Subnets:** Public and Private Subnets
+- **Security:** AWS Security Groups
+- **Load Balancing:** Application Load Balancer
+- **Traffic Routing:** Target Groups
+- **DNS Management:** Amazon Route 53
+- **Version Control:** Git and GitHub
 
 ## Author
 
@@ -169,4 +223,4 @@ Portfolio: [Add your portfolio URL]
 
 ---
 
-*This project was developed as a hands-on AWS cloud deployment project for learning and demonstrating practical cloud and DevOps skills.*
+*This project was developed as a hands-on AWS cloud deployment project to demonstrate practical knowledge of cloud infrastructure, containerization, networking, and DevOps technologies.*
