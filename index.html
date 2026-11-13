@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Varshith | Cloud & DevOps Engineer</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #080e1b;
+    color: #e5e7eb;
+    line-height: 1.7;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #0c1528;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+section {
+    padding: 85px 10%;
+}
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at top right,
+    #16345a, #080e1b 65%);
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    color: #38bdf8;
+}
+
+.hero h3 {
+    color: #94a3b8;
+    margin: 20px 0;
+    font-size: 23px;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #cbd5e1;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 25px 10px 0 0;
+    background: #0284c7;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0369a1;
+    transform: translateY(-3px);
+}
+
+.outline {
+    background: transparent;
+    border: 1px solid #38bdf8;
+}
+
+.heading {
+    font-size: 34px;
+    color: #38bdf8;
+    margin-bottom: 30px;
+}
+
+.about p {
+    color: #cbd5e1;
+    max-width: 900px;
+}
+
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #111d32;
+    border: 1px solid #243650;
+    border-radius: 12px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
+}
+
+.card h3 {
+    color: #38bdf8;
+    margin-bottom: 12px;
+}
+
+.card p, .card li {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.card ul {
+    padding-left: 18px;
+}
+
+.tag {
+    display: inline-block;
+    background: #173452;
+    color: #7dd3fc;
+    padding: 5px 10px;
+    margin: 5px 3px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.contact {
+    text-align: center;
+    background: #0c1528;
+}
+
+.contact p {
+    color: #cbd5e1;
+    margin: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #94a3b8;
+    background: #080e1b;
+}
+
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 12px;
+    }
+
+    section {
+        padding: 60px 7%;
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Sai Varshith.</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div>
+        <h1>Hello, I'm <span>Sai Varshith</span></h1>
+        <h3>Aspiring Cloud & DevOps Engineer</h3>
+
+        <p>
+            B.Tech graduate passionate about Cloud Computing,
+            AWS Infrastructure, Linux Administration,
+            DevOps Automation and CI/CD pipelines.
+            I enjoy building scalable, secure and
+            highly available cloud solutions.
+        </p>
+
+        <a href="#projects" class="btn">Explore My Projects</a>
+        <a href="#contact" class="btn outline">Contact Me</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2 class="heading">About Me</h2>
+
+    <p>
+        I'm Sai Varshith, a B.Tech graduate focused on
+        building my career as a Cloud and DevOps Engineer.
+
+        I have hands-on experience through practical labs
+        and projects involving Amazon Web Services (AWS),
+        Linux, Docker, Git, Jenkins and Terraform.
+
+        I have worked on AWS infrastructure deployments,
+        VPC networking, EC2 instances, RDS databases,
+        S3 storage, CloudFront, Application Load Balancers,
+        Auto Scaling Groups and CI/CD workflows.
+
+        My goal is to continuously improve my technical
+        knowledge and contribute to real-world cloud
+        infrastructure and automation projects.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="heading">Technical Skills</h2>
+
+    <div class="skills-grid">
+
+        <div class="card">
+            <h3>☁️ Cloud Computing</h3>
+            <span class="tag">AWS</span>
+            <span class="tag">EC2</span>
+            <span class="tag">S3</span>
+            <span class="tag">VPC</span>
+            <span class="tag">IAM</span>
+            <span class="tag">RDS</span>
+            <span class="tag">EFS</span>
+            <span class="tag">CloudFront</span>
+            <span class="tag">Route 53</span>
+            <span class="tag">ALB</span>
+            <span class="tag">Auto Scaling</span>
+        </div>
+
+        <div class="card">
+            <h3>🐧 Operating Systems</h3>
+            <span class="tag">Linux</span>
+            <span class="tag">Ubuntu</span>
+            <span class="tag">Amazon Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Shell Scripting</span>
+        </div>
+
+        <div class="card">
+            <h3>⚙️ DevOps Tools</h3>
+            <span class="tag">Docker</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Maven</span>
+            <span class="tag">SonarQube</span>
+        </div>
+
+        <div class="card">
+            <h3>🌐 Networking</h3>
+            <span class="tag">TCP/IP</span>
+            <span class="tag">DNS</span>
+            <span class="tag">HTTP/HTTPS</span>
+            <span class="tag">Subnetting</span>
+            <span class="tag">VPC</span>
+            <span class="tag">Security Groups</span>
+            <span class="tag">NACL</span>
+            <span class="tag">Load Balancing</span>
+        </div>
+
+        <div class="card">
+            <h3>💻 Development</h3>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Python Basics</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MySQL</span>
+        </div>
+
+        <div class="card">
+            <h3>📊 Monitoring & Automation</h3>
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">AWS CLI</span>
+            <span class="tag">Infrastructure as Code</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="heading">My Projects</h2>
+
+    <div class="projects-grid">
+
+        <div class="card">
+            <h3>01. Full-Stack AWS Deployment</h3>
+            <p>
+                Designed and deployed a Node.js application
+                using AWS cloud infrastructure.
+            </p>
+            <ul>
+                <li>EC2 in private subnet</li>
+                <li>Amazon RDS database</li>
+                <li>EFS shared storage</li>
+                <li>S3 and CloudFront delivery</li>
+                <li>ALB and Auto Scaling Group</li>
+                <li>Git and CodePipeline CI/CD</li>
+            </ul>
+            <br>
+            <span class="tag">AWS</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">CI/CD</span>
+        </div>
+
+        <div class="card">
+            <h3>02. Static Website Hosting</h3>
+            <p>
+                Hosted a static website using Amazon S3
+                and configured secure HTTPS delivery.
+            </p>
+            <ul>
+                <li>S3 static website hosting</li>
+                <li>CloudFront distribution</li>
+                <li>ACM SSL certificate</li>
+                <li>Route 53 DNS configuration</li>
+                <li>HTTPS configuration</li>
+            </ul>
+            <br>
+            <span class="tag">S3</span>
+            <span class="tag">CloudFront</span>
+            <span class="tag">ACM</span>
+        </div>
+
+        <div class="card">
+            <h3>03. Customer Information System</h3>
+            <p>
+                Developed a customer information application
+                with a MySQL database hosted on AWS.
+            </p>
+            <ul>
+                <li>EC2 application deployment</li>
+                <li>MySQL on Amazon RDS</li>
+                <li>VPC network architecture</li>
+                <li>Frontend and backend integration</li>
+                <li>Nginx reverse proxy</li>
+            </ul>
+            <br>
+            <span class="tag">AWS</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Nginx</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- CAREER OBJECTIVE -->
+<section>
+    <h2 class="heading">Career Objective</h2>
+    <div class="card">
+        <p>
+            Seeking an entry-level opportunity as an AWS
+            Cloud Engineer or DevOps Engineer where I can
+            apply my practical knowledge of cloud services,
+            Linux administration, networking, containerization
+            and automation while continuously learning and
+            contributing to organizational growth.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="heading">Let's Connect</h2>
+
+    <p>I'm open to entry-level Cloud and DevOps opportunities.</p>
+
+    <p>Email: bikkinenisaivarshith@gmail.com</p>
+
+    <p>Location: India</p>
+
+    <a href="https://www.linkedin.com/" class="btn"
+       target="_blank">LinkedIn</a>
+
+    <a href="https://github.com/" class="btn outline"
+       target="_blank">GitHub</a>
+</section>
+
+<footer>
+    <p>© 2026 Sai Varshith | Cloud & DevOps Engineer</p>
+    <p>Designed with passion for Cloud Technology.</p>
+</footer>
+
+</body>
+</html>
